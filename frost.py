@@ -4,8 +4,8 @@ import requests
 import json
 
 client = discord.Client()
-user = 'CLEVERBOT.IO API USER'
-key = 'CLEVERBOT.IO API KEY'
+user = 'GiVEA3k2vEKSJX0m'
+key = 'ye47ohHERGhVcNw1FjcfnVpPK6sW1bZl'
 
 @client.event
 async def on_ready():
@@ -23,4 +23,4 @@ async def on_message(message):
 
 print('Starting...')
 requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'frost'})
-client.run('DISCORD BOT TOKEN')
+client.run('NDM3MjE5ODgwMTc4MDI0NDQ4.Dfg-YQ.nJqDNf-8t6s0senerToYJ4jMwoY')
