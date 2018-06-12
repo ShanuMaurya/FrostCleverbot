@@ -10,7 +10,7 @@ key = 'ye47ohHERGhVcNw1FjcfnVpPK6sW1bZl'
 @client.event
 async def on_ready():
     print('Logged in as '+client.user.name+' (ID:'+client.user.id+') | '+str(len(client.servers))+' servers')
-    await client.change_presence(game=discord.Game(name='Pεтяσℓ Mαятιηι On Discord', 'https://www.twitch.tv/theonlyartz'))
+    await client.change_presence(game=discord.Game(name='Pεтяσℓ Mαятιηι On Discord'))
 
 @client.event
 async def on_message(message):
