@@ -18,3 +18,5 @@ rpc.on('ready', () => {
     instance: true,
   });
 });
+
+rpc.login(ClientId).catch(console.error);
