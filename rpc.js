@@ -12,10 +12,10 @@ rpc.on('ready', () => {
     details: `Modification of Pεтяσℓ Mαятιηι`,
     state: 'Working on Brain.Pεтяσl',
     largeImageKey: 'hr2',
-    largeImageText: 'Modification of Petrol ',
+    largeImageText: 'Modification of Petrol',
     smallImageKey: 'hr',
     smallImageText: 'not done yet',
-    instance: true,
+    instance: false,
   });
 });
 
