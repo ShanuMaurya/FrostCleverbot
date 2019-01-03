@@ -4,8 +4,8 @@ import requests
 import json
 
 client = discord.Client()
-user = 'CLEVERBOT.IO API USER'
-key = 'CLEVERBOT.IO API KEY'
+user = 'TqnZOPfoJsXVUNam'
+key = '46JYSuDaKLGZdNW1ipstUqVt5BaDVnAz'
 
 @client.event
 async def on_ready():
