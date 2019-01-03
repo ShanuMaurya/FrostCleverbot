@@ -1,37 +1,26 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+import discord
+import asyncio
+import requests
+import json
 
+client = discord.Client()
+user = 'CLEVERBOT.IO API USER'
+key = 'CLEVERBOT.IO API KEY'
 
-const DiscordRPC = require("discord-rpc");
+@client.event
+async def on_ready():
+    print('Logged in as '+client.user.name+' (ID:'+client.user.id+') | '+str(len(client.servers))+' servers')
+    await client.change_presence(game=discord.Game(name='chat with me!'))
 
-const ClientId = '456423224960352268';
+@client.event
+async def on_message(message):
+    if not message.author.bot and (message.server == None or client.user in message.mentions):
+        await client.send_typing(message.channel)
+        txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
+        r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'frost', 'text':txt}).text)
+        if r['status'] == 'success':
+            await client.send_message(message.channel, r['response'] )
 
-DiscordRPC.register(ClientId);
-
-const rpc = new DiscordRPC.Client({ transport: 'ipc' });
-
-rpc.on('ready', () => {
-  console.log("ready");
-  rpc.setActivity({
-    details: `Modification of Pεтяσℓ Mαятιηι`,
-    state: 'Working on Brain.Pεтяσl',
-    largeImageKey: 'hr2',
-    largeImageText: 'Modification of Petrol',
-    smallImageKey: 'hr',
-    smallImageText: 'not done yet',
-    instance: false,
-  });
-});
-
-client.on("ready", () => {
-  console.log("I am ready!");
-});
-
-client.on("message", (message) => {
-  if (message.content.startsWith("ping")) {
-    message.channel.send("pong!");
-  }
-});
-
-client.login("TOKEN");
-
+print('Starting...')
+requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'frost'})
+client.run(process.env.tockn)
